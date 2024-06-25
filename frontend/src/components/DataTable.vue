@@ -4,6 +4,7 @@ import columns from './columns';
 import axios from 'axios';
 import dummypatients from '../data/PatientData.js';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'vue-router';
 import {
   Select,
   SelectContent,
@@ -20,7 +21,12 @@ import {
   NumberFieldDecrement,
   NumberFieldIncrement,
   NumberFieldInput,
-} from '@/components/ui/number-field'
+} from '@/components/ui/number-field';
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log('API_BASE_URL:', API_BASE_URL);
+
+const router = useRouter();
 
 const genderFilter = ref('');
 const ageFilter = ref('');
@@ -30,7 +36,7 @@ const patients = ref([]);
 
 async function fetchData() {
   try {
-    const response = await axios.get('http://localhost:3000/patient/getall');
+    const response = await axios.get(`${API_BASE_URL}/patient/getall`);
     console.log('Data fetched:', response.data)
     patients.value = response.data.length ? response.data : dummyPatients;
   } catch (error) {
@@ -79,6 +85,10 @@ function nextPage() {
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
   }
+}
+
+const toDetailPage = (id) => {
+  router.push(`/patient/${id}`);
 }
 </script>
 
@@ -132,10 +142,16 @@ function nextPage() {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="row in paginatedData" :key="row.id"> <!-- Assuming 'id' is the unique identifier -->
+          <tr v-for="row in paginatedData" :key="row.id">
             <td v-for="column in columns" :key="column.accessor">
               <span v-if="column.accessor === 'name'">
-                <a :href="`http://localhost:5174/patient/${row.id}`">{{ row[column.accessor] }}</a>
+                <!-- <button @click="toDetailPage(row._id)"> -->
+                  <p
+                    as="a"
+                    class="hover:underline cursor-pointer"
+                    @click="toDetailPage(row._id)"
+                  >{{ row[column.accessor] }}</p>
+                <!-- </button> -->
               </span>
               <span v-else>
                 {{ column.Cell ? column.Cell({ value: row[column.accessor] }) : row[column.accessor] }}

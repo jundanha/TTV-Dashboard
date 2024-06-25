@@ -1,6 +1,6 @@
 const ttvData = [
   {
-    patient: "60c72b2f9b1e8e3a1c8b4567", // Replace with actual patient ObjectId
+    patient: "60c72b2f9b1e8e3a1c8b4567",
     type: "Blood Pressure",
     value: "120/80",
     unit: "mmHg",
@@ -9,7 +9,7 @@ const ttvData = [
     updatedAt: new Date(),
   },
   {
-    patient: "60c72b2f9b1e8e3a1c8b4567", // Replace with actual patient ObjectId
+    patient: "60c72b2f9b1e8e3a1c8b4567",
     type: "Pulse",
     value: 70,
     unit: "bpm",
@@ -19,7 +19,7 @@ const ttvData = [
     updatedAt: new Date(),
   },
   {
-    patient: "60c72b2f9b1e8e3a1c8b4568", // Replace with actual patient ObjectId
+    patient: "60c72b2f9b1e8e3a1c8b4568", 
     type: "Respiration Rate",
     value: 18,
     unit: "breaths per minute",
@@ -28,7 +28,7 @@ const ttvData = [
     updatedAt: new Date(),
   },
   {
-    patient: "60c72b2f9b1e8e3a1c8b4568", // Replace with actual patient ObjectId
+    patient: "60c72b2f9b1e8e3a1c8b4568", 
     type: "Body Temperature",
     value: 37.0,
     unit: "°C",
@@ -37,7 +37,7 @@ const ttvData = [
     updatedAt: new Date(),
   },
   {
-    patient: "60c72b2f9b1e8e3a1c8b4569", // Replace with actual patient ObjectId
+    patient: "60c72b2f9b1e8e3a1c8b4569", 
     type: "Blood Pressure",
     value: "130/85",
     unit: "mmHg",
