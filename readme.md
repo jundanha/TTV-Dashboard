@@ -13,5 +13,5 @@ docker compose up
 
 after finished, you can access the website locally at
 ```
-
+localhost:8080
 ```
